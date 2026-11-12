@@ -1,0 +1,13 @@
+{
+  "domain": "coffee_machine",
+  "name": "Coffee Machine",
+  "codeowners": ["@timothy-gibson"],
+  "config_flow": true,
+  "dependencies": ["http", "frontend"],
+  "documentation": "https://github.com/timothy-gibson/ha-coffee-machine",
+  "integration_type": "device",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/timothy-gibson/ha-coffee-machine/issues",
+  "requirements": [],
+  "version": "0.6.0"
+}

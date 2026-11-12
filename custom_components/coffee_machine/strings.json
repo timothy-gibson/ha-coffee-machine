@@ -1,0 +1,85 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a coffee machine",
+        "description": "Pick the smart plug your machine is plugged into and the sensor that reports its current (or power) draw.",
+        "data": {
+          "name": "Name",
+          "switch_entity": "Smart plug",
+          "power_entity": "Current / power sensor",
+          "threshold": "Heating threshold",
+          "sleep_timeout": "Sleep timeout",
+          "wake_off_seconds": "Wake: time plug stays off",
+          "min_heating_seconds": "Minimum heating time",
+          "activity_window_seconds": "Activity window"
+        },
+        "data_description": {
+          "power_entity": "Usually the plug's current (A) or power (W) sensor.",
+          "threshold": "Readings at or above this (same units as the sensor) mean the heater is on. Check the sensor's history while the machine heats to choose a value.",
+          "sleep_timeout": "How long after its last heating or use the machine goes into standby by itself.",
+          "wake_off_seconds": "When waking, the plug is switched off for this long and then back on.",
+          "min_heating_seconds": "High current shorter than this is a burst (top-up or shot) rather than real heating. Only real heating wakes a sleeping machine.",
+          "activity_window_seconds": "Short bursts that start within this long of the previous heating or shot count as using the machine and restart the sleep timer. Isolated bursts are top-ups and are ignored. 0 disables."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "That smart plug is already set up as a coffee machine."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Coffee machine settings",
+        "data": {
+          "switch_entity": "Smart plug",
+          "power_entity": "Current / power sensor",
+          "threshold": "Heating threshold",
+          "sleep_timeout": "Sleep timeout",
+          "wake_off_seconds": "Wake: time plug stays off",
+          "min_heating_seconds": "Minimum heating time",
+          "activity_window_seconds": "Activity window"
+        },
+        "data_description": {
+          "threshold": "Readings at or above this (same units as the sensor) mean the heater is on.",
+          "sleep_timeout": "Counted from when the heater stops; restarts whenever it heats again.",
+          "min_heating_seconds": "High current shorter than this is a burst (top-up or shot) rather than real heating. Only real heating wakes a sleeping machine.",
+          "activity_window_seconds": "Short bursts that start within this long of the previous heating or shot count as using the machine and restart the sleep timer. Isolated bursts are top-ups and are ignored. 0 disables."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "off": "Off",
+          "waking": "Waking up",
+          "heating": "Heating",
+          "ready": "Ready",
+          "sleeping": "Sleeping"
+        }
+      },
+      "sleep_at": {
+        "name": "Sleeps at"
+      }
+    },
+    "binary_sensor": {
+      "awake": {
+        "name": "Awake"
+      }
+    },
+    "button": {
+      "wake": {
+        "name": "Wake"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "Power"
+      }
+    }
+  }
+}
